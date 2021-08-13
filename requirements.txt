@@ -1,0 +1,2 @@
+#Put in this file all the installed and used dependencies on this project
+virtualenv=20.6.0
