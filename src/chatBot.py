@@ -1,0 +1,1 @@
+#(Extra da aplicacao nao necessario para a conclusao), aqui ficará o modolo de conversa com um Bot.

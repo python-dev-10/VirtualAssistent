@@ -1,0 +1,1 @@
+Para o windows a instalacao do py audio pode nao funcionar por isso nesta pasta esta um arquivo de instalacao dele, basta dar: pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
