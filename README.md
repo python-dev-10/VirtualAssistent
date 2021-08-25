@@ -12,3 +12,7 @@
 
 After this simple steps, its time to take our tools and shoot the works!!
 
+Iniciando o projeto: 
+- 1: Abra https://www.python.org/downloads/ baixe python e inicio, next next finish, reinicie o computador.
+- 2: Abra a pasta do aplicativo no terminal e digite: pip install -r requirements.txt
+- 3: Por fim digite: pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
