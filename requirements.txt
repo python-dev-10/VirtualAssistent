@@ -1,2 +1,16 @@
-#Put in this file all the installed and used dependencies on this project
-virtualenv=20.6.0
+certifi==2021.5.30
+charset-normalizer==2.0.4
+docutils==0.17.1
+idna==3.2
+Kivy==2.0.0
+kivy-deps.angle==0.3.0
+kivy-deps.glew==0.3.0
+kivy-deps.sdl2==0.3.1
+Kivy-Garden==0.1.4
+Pillow==8.3.1
+Pygments==2.10.0
+pypiwin32==223
+pywin32==301
+requests==2.26.0
+SpeechRecognition==3.8.1
+urllib3==1.26.6
