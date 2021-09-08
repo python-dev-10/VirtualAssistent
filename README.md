@@ -17,7 +17,7 @@ Iniciando o projeto:
 - 2: Abra a pasta do aplicativo no terminal e digite: pip install -r requirements.txt
 - 3: Por fim digite: pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
 
-As of September, 09th, the project will follow the PEP8 pattern.
+## As of September, 09th, the project will follow the PEP8 pattern.
 
 Pay attention on what you will commit from now:
 - The code format;
