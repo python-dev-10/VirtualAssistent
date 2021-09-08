@@ -16,3 +16,86 @@ Iniciando o projeto:
 - 1: Abra https://www.python.org/downloads/ baixe python e inicio, next next finish, reinicie o computador.
 - 2: Abra a pasta do aplicativo no terminal e digite: pip install -r requirements.txt
 - 3: Por fim digite: pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
+
+As of September, 09th, the project will follow the PEP8 pattern.
+
+Pay attention on what you will commit from now:
+- The code format;
+- The max length of characters;
+- Spacings/Lines between functions;
+- Docstrings;
+
+### MaxLength Character:
+By  deafult the PEP8 only allows lines with up to 79 charaters.
+```py
+
+def very_long_function(long_variable_name, long_variable_name2, long_variable_name3, long_variable_name4, long_variable_name5):
+    pass
+```
+
+you can use: `black filename.py`, to reformat the file in the correct pattern
+
+```py
+
+def very_long_function(
+    long_variable_name,
+    long_variable_name2,
+    long_variable_name3,
+    long_variable_name4,
+    long_variable_name5
+):
+    pass
+```
+
+### Code Format in general:
+Checks the style and quality of your Python code.
+```py
+
+def function_name(n1, n, n3,
+n4, n5):
+    print(n1, n2, n3, n4, n5)
+
+function_name(1, 2, 3, 4, 5)
+```
+you can use: `flake8 filename.py`, to reformat the file in the correct pattern
+```py
+
+def function_name(n1, n, n3,n4, n5):
+    print(n1, n2, n3, n4, n5)
+
+
+function_name(1, 2, 3, 4, 5)
+
+```
+### Rearranging  the imports:
+for rearranging the imports you can use `isort filename.py`
+
+### Docstrings:
+```py
+class  Test:
+    def __init__(self, num) -> None:
+        self.num = num 
+
+    def plus_two(self):
+        return self.num + 2
+```
+
+In the example above we do not have any docstring there, we need to add them to identify what each function provides and do. So for this add docstrings, we use `"""something"""`, three quotations marks instead of `#something`
+
+```py
+"""Example of class test"""
+
+class Test:
+    """Perform some operation"""
+    def __init__(self, num) -> None:
+        self.num = num 
+
+    def plus_two(self):
+        """Add 2"""
+        return self.num + 2
+```
+
+the `__init__` method it is not necessary add a docstring, so this method will be ignored. You can use `interrogate -vv filename.py`, to help you to look for the missed docstrings.
+
+
+
