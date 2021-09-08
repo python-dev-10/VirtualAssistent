@@ -1,1 +1,1 @@
-#(Extra da aplicacao nao necessario para a conclusao), aqui ficará o modolo de conversa com um Bot.
+#Extra da aplicacao nao necessario para a conclusao, aqui ficará a conversa com um Bot mais 'amigavel'.

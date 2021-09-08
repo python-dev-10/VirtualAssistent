@@ -2,7 +2,7 @@
 import speech_recognition
 import time
 #Ouvir o microfone
-def ouvirvoz():
+def ouvir_voz():
     #Microfone
     microfone = speech_recognition.Recognizer()
     #Ouvindo o microfone

@@ -1,6 +1,6 @@
 #Aqui vai ser a UI/UX da aplicacao
 import kivy
-from centralAplicacao import reconhecimentoDeVoz
+#from centralAplicacao import reconhecimentoVoz
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.core.window import Window
