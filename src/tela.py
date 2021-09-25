@@ -1,9 +1,15 @@
 #Aqui vai ser a UI/UX da aplicacao
 import kivy
-from centralAplicacao import reconhecimentoDeVoz
+#from centralAplicacao import reconhecimentoVoz
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.core.window import Window
+from centralAplicacao import *
+from threading import Thread
+
+from reconhecimento_de_voz import *
+
+
 #Dimensões da janela
 Window.size = (410, 710)
 #Cor de fundo da janela
@@ -21,7 +27,8 @@ class Cortina(App):
         return botao
     #Reconhecimento de voz    
     def test(self,obj):
-        print("test")
+        for respostas in ouvir_voz():
+            print("test/ouvir_voz retornou: ",respostas)
 #Inicia a aplicacao
 if __name__ == "__main__":
     Cortina().run()
