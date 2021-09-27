@@ -2,6 +2,7 @@
 from reconhecimento_de_voz import *
 from abrirAplicativos import *
 from pesquisarNavegador import *
+from Alarm import Alarm
 from multiprocessing.pool import ThreadPool
 # Liga o reconhecimento de voz
 
@@ -46,3 +47,6 @@ def pesquisar_algo(frase):
     if "pesquisar" in frase:
         yield pesquisar_no_google(frase)
 
+def create_alarm(self, text):
+    if "criar" or "crie" in text:
+        Alarm.add_alarm(text)
