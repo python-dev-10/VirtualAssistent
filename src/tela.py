@@ -1,3 +1,4 @@
+# Aqui ficará a parte visual UI/UX da aplicacao
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.core.window import Window
@@ -11,7 +12,7 @@ Window.left = 5
 Builder.load_file('ui\interface.kv')
 # Layout
 class Conversa(BoxLayout):
-    def adicionar_mensagem(self):
+    def mic(self):
         for retorno in reconhecer():
             self.add(retorno)
     def add(self,texto):

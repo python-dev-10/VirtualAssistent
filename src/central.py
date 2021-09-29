@@ -8,7 +8,7 @@ def verificar(frase):
     if any(x in frase for x in ["abra","abrir"]):
         return qual(frase)
     #Verifica comando para pesquisar
-    if any(x in frase for x in ["pesquise","pesquisar","pesquisa"]):
+    if any(x in frase for x in ["pesquise","pesquisar"]):
         return oque(frase)
     #Nenhum comando for solicitado
     else:
@@ -20,6 +20,3 @@ def reconhecer():
         audio=palavra
     retorno_verificar=verificar(audio.lower())
     return audio,retorno_verificar
-# testar a funcao reconhecer
-# for retorno in reconhecer():
-#     print("|central|",retorno)

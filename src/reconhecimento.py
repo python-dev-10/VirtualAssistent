@@ -28,6 +28,3 @@ def ouvir():
             break
     # Escuta no maximo 3 segundos
     time.sleep(3)
-# testar a funcao ouvir
-# for retorno in ouvir():
-#     print("|ouvir|",retorno)
