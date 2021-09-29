@@ -2,7 +2,7 @@
 import speech_recognition
 import time
 # Ouvir o microfone
-def ouvir_voz():
+def ouvir():
     # Microfone
     microfone = speech_recognition.Recognizer()
     # Ouvindo o microfone
@@ -14,8 +14,8 @@ def ouvir_voz():
             # armazena o texto na variavel frase
             frase = microfone.recognize_google(audio, language='pt-BR')
             # se tiver frase imprime ela
-            if frase!=None:
-                yield "Voce disse: "+frase
+            if frase != None:
+                yield "Voce disse: " + frase
                 break
         # Caso nao reconheca o audio
         except speech_recognition.RequestError:
@@ -28,7 +28,6 @@ def ouvir_voz():
             break
     # Escuta no maximo 3 segundos
     time.sleep(3)
-#testar o reconhecimento
-for respostas in ouvir_voz():
-    print(respostas)
-
+# testar a funcao ouvir
+# for retorno in ouvir():
+#     print("|ouvir|",retorno)

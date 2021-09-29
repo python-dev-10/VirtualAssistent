@@ -1,35 +1,33 @@
-#Aqui vai ser a UI/UX da aplicacao
-import kivy
-#from centralAplicacao import reconhecimentoVoz
 from kivy.app import App
-from kivy.uix.button import Button
+from kivy.lang import Builder
 from kivy.core.window import Window
-from centralAplicacao import *
-from threading import Thread
-
-from reconhecimento_de_voz import *
-
-
-#Dimensões da janela
+from kivy.uix.boxlayout import BoxLayout 
+from central import reconhecer
+#Tamanho da janela
 Window.size = (410, 710)
-#Cor de fundo da janela
-Window.clearcolor = (1, 1, 1, 1)
-#Interface gráfica
+Window.top = 320
+Window.left = 5
+# Interface gráfica
+Builder.load_file('ui\interface.kv')
+# Layout
+class Conversa(BoxLayout):
+    def adicionar_mensagem(self):
+        for retorno in reconhecer():
+            self.add(retorno)
+    def add(self,texto):
+        if texto!="":
+            self.ids.box.add_widget(Mensagem(str(texto)))
+class Mensagem(BoxLayout):
+    def __init__(self,texto=""):
+        super().__init__()
+        self.ids.label.text=texto
+# O aplicativo
 class Cortina(App):
-    #Monta a tela
+    # Monta a tela
     def build(self):
-        self.icon = 'img/mic.png'
-        botao=Button(
-            text = 'Mic',
-            size_hint = (.1, .1),
-            pos_hint = {"x":.9, "y":0.},
-            on_press=self.test)
-        return botao
-    #Reconhecimento de voz    
-    def test(self,obj):
-        for respostas in ouvir_voz():
-            print("test/ouvir_voz retornou: ",respostas)
-#Inicia a aplicacao
+        self.icon = 'img/icon.png'
+        return Conversa()
+# Inicia a aplicacao
 if __name__ == "__main__":
     Cortina().run()
-    
+
