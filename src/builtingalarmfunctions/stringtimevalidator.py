@@ -76,11 +76,13 @@ class StringTimeValidator:
         :param text: phrase passed throught voice recognition
         :return: Return a new time formatted string in seconds
         """
+        print(f"function string_seconds_validator text: {text}")
         word_not_alpha= ""
         word_seconds= ""
         position_not_alpha = 0
         position_alpha = 0
-        if "horas" in text:
+        new_world=tuple((0, ""))
+        if "segundos" in text:
 
             word_seconds = "segundos"
 
@@ -99,7 +101,6 @@ class StringTimeValidator:
                     print(f"word_not_alpha {word_not_alpha}")
 
                     if position_alpha - position_not_alpha == 1:
-                        new_word = tuple((word_not_alpha, word_seconds))
-                        print(new_word)
+                        new_world=((word_not_alpha, word_seconds))
                         break #break or continue
-        return new_word
+        return new_world
