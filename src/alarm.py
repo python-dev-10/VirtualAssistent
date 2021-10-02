@@ -4,20 +4,24 @@ from alarmsong import run_music
 import time as timelib
 import sched
 from builtingalarmfunctions import stringtimevalidator as timevalidator
-# import pyttsx3
-#
+from builtingalarmfunctions import timeConverter
+
+
 class Alarm:
     """
     CallableAlarm functions
     """
+
     def __init__(self):
-        self.agendar = sched.scheduler(timelib.time, timelib.sleep)
+        self.scheduled = sched.scheduler(timelib.time, timelib.sleep)
+        self.time_converter = timeConverter.TimeConverter
 
     def add_alarm(self, text):
         """
-
-        :param text:
-        :return:
+        main function that will be called, when the intention is to 7
+        create an alarm
+        :param text: spelled user phrase
+        :return: None
         """
         # engine = pyttsx3.init()
         string_time_validator = timevalidator.StringTimeValidator()
@@ -33,25 +37,27 @@ class Alarm:
         """
         Function to execute the alarm in seconds
         :param time: time int for create the alarm
-        :return: none
+        :return: None
         """
-        self.agendar.enter(time, 2, run_music(),argument=('10 segundos',))
-        self.agendar.run()
+        self.scheduled.enter(time, 2, run_music())
+        self.scheduled.run()
 
     def sched_per_minute(self, time):
         """
         Function to execute the alarm in minutes
         :param time: time int for create the alarm
-        :return: none
+        :return: None
         """
-        self.agendar.enter(time, 2, run_music(),argument=('10 segundos',))
-        self.agendar.run()
+        self.scheduled.enter(self.time_converter.convert_minutes_to_seconds(time), 2, run_music())
+        self.scheduled.run()
 
-    def schedule_per_hour(self, time):
+    def sched_per_hour(self, time):
         """
+        Function to execute the alarm in hours
         :param time: time int for create the alarm
-        :return: none
+        :return: None
         """
+        self.scheduled.enter(self.time_converter.convert_hour_to_seconds(time), 2, run_music())
         schedule.every().hour.do(run_music())
 
     def schedule_per_day(self):
@@ -94,42 +100,39 @@ class Alarm:
 
     def handle_per_minute(self, text, string_time_validator):
         """
-
+        Handler function to deal with the time in minutes
         :param text:
         :param string_time_validator:
-        :param engine:
-        :return:
+        :return: None
         """
         string_minute = string_time_validator.string_minute_validator(text)
         if string_minute[1] == "minutos":  # this if clause redundant
             time_value = string_minute[0]
             try:
-                self.schedule_per_minute(time_value)
+                self.sched_per_minute(time_value)
             except Exception:
                 Exception("Não foi possível criar o alarme")
 
     def handle_per_hour(self, text, string_time_validator):
         """
-
+        Handler Function to deal with the time in hours
         :param text:
         :param string_time_validator:
-        :param engine:
-        :return:
+        :return: None
         """
         string_hour = string_time_validator.string_hour_validator(text)
         if string_hour[1] == "horas":  # this if clause redundant
             time_value = string_hour[0]
             try:
-                self.schedule_per_hour(time_value)
+                self.sched_per_hour(time_value)
             except Exception:
                 Exception("Não foi possível criar o alarme")
 
     def handle_per_second(self, text, string_time_validator):
         """
-
+        Handler Function to deal with the time in seconds
         :param text:
         :param string_time_validator:
-        :param engine:
         :return:
         """
         print(f"text: {text}")
@@ -142,17 +145,3 @@ class Alarm:
                 self.sched_per_second(time_value)
             except Exception:
                 Exception("Não foi possível criar o alarme")
-
-
-
-def music():
-    run_music()
-
-
-
-
-
-
-
-
-
