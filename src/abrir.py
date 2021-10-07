@@ -8,18 +8,18 @@ def lista():
     return dado
 # Gerencia qual programa vai ser aberto
 def qual(frase):
-    esse=[]
     dado=lista()
+    tem=False
+    rev=""
     for palavra in frase.split():
         for i in range(len(dado)):
             if palavra == dado[i][0]:
-                esse=[dado[i][0],dado[i][1]]
-            else:
-                continue
-    if esse==[]:
+                tem = True
+                rev +=str(executar(dado[i][0],dado[i][1]))
+    if tem:
+        return rev
+    if tem==False:
         return "Assistente: Nao foi consigo abrir o programa solicitado."
-    else:
-        return executar(esse[0],esse[1])
 # Excecuta o programa em um segundo processo
 def executar(nome,comando):
     processo = Thread(target=terminal, args=[comando])

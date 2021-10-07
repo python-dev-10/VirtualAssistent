@@ -19,13 +19,20 @@
         height:60
         TextInput:
             id:entrada
-            background_color:(0,0,0,0.1)
+            hint_text: "Pergunte à Cortina"
+            color:(0.4,0.4,0.4,1)
+            padding:20,0,0,0
+            padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+            background_color:(0,0,0,0)
+            cursor_color:(0,0,0,1)
+            on_text:root.modo()
         Button:
             size_hint_x:None
             width:60
             on_press:root.mic()
             background_color:(0,0,0,0)
             Image:
+                id:micimg
                 source:'img/mic.png'
                 pos:self.pos
                 height:30
@@ -33,15 +40,31 @@
                 center_y:self.parent.center_y
 <Mensagem>:
     size_hint_y:None
-    padding:10
+    padding:50,10,10,10
     Label:
-        id:label
+        id:usuario
         text_size: self.width-20, None
         color:(0,0,0,1)
-        background_color:(.9,.9,.9,1)
+        background_color:(.95,.95,.95,1)
         canvas.before:
             Color:
                 rgba:self.background_color
-            Rectangle:
+            RoundedRectangle:
                 pos:self.pos
                 size:self.size
+                radius:[(20, 20),(20, 20),(0, 0),(20, 20)]
+<Resposta>:
+    size_hint_y:None
+    padding:10,10,50,10
+    Label:
+        id:assitente
+        text_size: self.width-20, None
+        color:(0.5,0.5,0.5,1)
+        background_color:(.9,.9,.9,1)
+        canvas.before:
+            Color:
+                rgba:(.9,.9,.9,1)
+            Line:
+                rounded_rectangle:(self.pos[0],self.pos[1],self.size[0],self.size[1],0, 20, 20, 20, 300)
+                width:1.2
+                
