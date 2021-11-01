@@ -4,12 +4,14 @@ from kivy.app import App
 # Layout
 class Conversa(BoxLayout):
     mandar=False
+    def texto(self,*args):
+        formatado=("Voce disse:"+self.ids.entrada.text).lower()
+        self.add(str(self.ids.entrada.text),"usuario")
+        self.add(str(verificar(formatado)),"assistente")
+        self.ids.entrada.text=""
     def mic(self):
         if self.mandar:
-            formatado=("Voce disse:"+self.ids.entrada.text).lower()
-            self.add(str(self.ids.entrada.text),"usuario")
-            self.add(str(verificar(formatado)),"assistente")
-            self.ids.entrada.text=""
+            Clock.schedule_once(self.texto)
         else:
             self.ids.micimg.source='img/audio.gif'
             self.ids.micimg.disabled = True
@@ -54,10 +56,11 @@ class Cortina(App):
         return Conversa()
 # Inicia a aplicacao
 if __name__ == "__main__":
+    from kivy.clock import Clock
     from kivy.lang import Builder
+    from kivy.config import Config
     from kivy.core.window import Window
     from central import reconhecer,verificar
-    from kivy.config import Config
     #Desabilita o multitouch
     Config.set('input', 'mouse', 'mouse,disable_multitouch')
     #Tamanho da janela
@@ -65,6 +68,6 @@ if __name__ == "__main__":
     Window.top = 320
     Window.left = 5
     # Interface gráfica
-    Builder.load_file('ui\interface.kv')
+    Builder.load_file('ui/interface.kv')
     Cortina().run()
 

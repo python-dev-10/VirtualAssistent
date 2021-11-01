@@ -10,14 +10,14 @@ def lista():
 def qual(frase):
     dado=lista()
     tem=False
-    rev=""
+    volta=""
     for palavra in frase.split():
         for i in range(len(dado)):
             if palavra == dado[i][0]:
                 tem = True
-                rev +=str(executar(dado[i][0],dado[i][1]))
+                volta +=str(executar(dado[i][0],dado[i][1]))+"\n"
     if tem:
-        return rev
+        return volta
     if tem==False:
         return "Assistente: Nao foi consigo abrir o programa solicitado."
 # Excecuta o programa em um segundo processo

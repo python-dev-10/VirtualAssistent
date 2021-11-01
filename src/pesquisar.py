@@ -5,7 +5,10 @@ def oque(frase):
     frase=frase.replace("pesquise", "")
     frase=frase.replace("pesquisar", "")
     frase=frase.replace("voce disse:", "")
-    return pesquisar_no_google(frase)
+    volta=""
+    for palavras in frase.split(" e "):
+        volta +=str(pesquisar_no_google(palavras))+"\n"
+    return volta
 # Abre no navegador padrao, em uma nova aba, uma pesquisa no Google
 def pesquisar_no_google(pesquisa):
     busca = "https://www.google.com/search?q=" + pesquisa

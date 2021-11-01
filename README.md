@@ -10,4 +10,7 @@ Commit "C1",diferente da branch v0.0.2-dev:
 -Problemas para corrigir: * Reajustar baloes de texto para se ajudar ao tamanho do texto
                           * Implementar um sistema de multi thread para a tela da aplicacao nao congelar/travar
 
+Commit "C2",diferente do Commit "C1":
 
+-Faz somente uma pesquisa → Faz multiplas pesquisas
++Resolvido o congelamento de tela ao usar o assistente por texto
