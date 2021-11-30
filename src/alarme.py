@@ -27,5 +27,3 @@ def definir(frase):
     agendar.enter(int(tempo), 1, soar)
     agendar.run()
     return("Assitente: Alarme agendado")
-
-definir("sete segundos")

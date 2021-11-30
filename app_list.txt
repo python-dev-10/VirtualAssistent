@@ -8,3 +8,4 @@ arquivos=explorer
 edge=start msedge
 paint=start mspaint
 gedit=gedit
+gimp=gimp

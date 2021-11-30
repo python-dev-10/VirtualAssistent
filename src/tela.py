@@ -15,16 +15,14 @@ class Conversa(BoxLayout):
         else:
             self.ids.micimg.source='img/audio.gif'
             self.ids.micimg.disabled = True
-            self.lados(reconhecer("ada"))
+            self.lados(reconhecer())
             self.ids.micimg.source='img/mic.png'
     def lados(self,retornos):
         for palavras in retornos:
             if any(x in palavras for x in ["Assistente:"]):
                 self.add(str(palavras),"assistente")
             if any(x in palavras for x in ["Voce disse:"]):
-                self.add(str(palavras),"usuario")   
-            else:
-                pass       
+                self.add(str(palavras),"usuario")     
     def add(self,texto,lado):
         if texto!="":
             if lado == "usuario":

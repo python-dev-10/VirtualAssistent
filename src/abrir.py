@@ -19,7 +19,7 @@ def qual(frase):
     if tem:
         return volta
     if tem==False:
-        return "Assistente: Nao foi consigo abrir o programa solicitado."
+        return "Assistente: Nao foi possivel abrir o programa solicitado."
 # Excecuta o programa em um segundo processo
 def executar(nome,comando):
     processo = Thread(target=terminal, args=[comando])
@@ -29,3 +29,5 @@ def executar(nome,comando):
 # Excecuta comando para abrir atravez do terminal
 def terminal(comando):
     os.system(comando)
+
+print(lista())

@@ -12,5 +12,13 @@ Commit "C1",diferente da branch v0.0.2-dev:
 
 Commit "C2",diferente do Commit "C1":
 
--Faz somente uma pesquisa → Faz multiplas pesquisas
++Faz somente uma pesquisa → Faz multiplas pesquisas
 +Resolvido o congelamento de tela ao usar o assistente por texto
++Resolvido o congelamento de tela ao usar o assistente por voz(Testado somente no Linux)
+*Problemas para corrigir: Reajustar baloes de texto para se ajudar ao tamanho do texto
+
+Commit "C3",diferente do Commit "C2":
+
++Funcionalidade nova: Tradutor, permite traduzir frases para portugues colocando o comando traduzir ou traduza antes dela
++Funcionalidade nova: Infauna, permite ver rapidamente informacoes sobre animais direto do assistente
++Funcionalidade nova: imganimal, permite identificar animais apartir da imagem dele, basta ter essa imagem na pasta imagem e colocar identifique + caminho até o arquivo exemplo: identifique /animal/naosei.jpg
